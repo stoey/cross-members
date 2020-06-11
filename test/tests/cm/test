@@ -1,0 +1,3 @@
+#!/bin/sh -e
+
+cm cm-test > /dev/null || exit 1

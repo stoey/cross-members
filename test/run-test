@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+TEST=$1
+
+
+if [ -x ${TEST} ]; then
+    echo -n "Running test ${TEST}: "
+    sh -e ${TEST} && echo "OK" || exit 1
+else
+    echo "Missing Test: ${TEST}"
+fi
+

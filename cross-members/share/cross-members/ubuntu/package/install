@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+PACKAGE_LISTS=$@
+
+apt-get update
+
+strip_comments() {
+  sed 's/#.*$//g'
+}
+
+package_list() {
+    local files=$@
+    cat ${files} | strip_comments
+}
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -y $(package_list)
+apt-get clean
+
+

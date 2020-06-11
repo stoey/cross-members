@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PREFIX=/usr/local/share/cross-members/ubuntu
+
+find ${PREFIX} -type f -executable

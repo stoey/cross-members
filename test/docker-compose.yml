@@ -1,0 +1,191 @@
+version: "3.0"
+services:
+  
+  ubuntu-20.04:
+    image: stoey/cross-members-test:ubuntu-20.04
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "20.04"
+  
+  
+  ubuntu-focal-20200423:
+    image: stoey/cross-members-test:ubuntu-focal-20200423
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "focal-20200423"
+  
+  
+  ubuntu-focal:
+    image: stoey/cross-members-test:ubuntu-focal
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "focal"
+  
+  
+  ubuntu-latest:
+    image: stoey/cross-members-test:ubuntu-latest
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "latest"
+  
+  
+  ubuntu-rolling:
+    image: stoey/cross-members-test:ubuntu-rolling
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "rolling"
+  
+  
+  ubuntu-20.10:
+    image: stoey/cross-members-test:ubuntu-20.10
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "20.10"
+  
+  
+  ubuntu-groovy-20200505:
+    image: stoey/cross-members-test:ubuntu-groovy-20200505
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "groovy-20200505"
+  
+  
+  ubuntu-groovy:
+    image: stoey/cross-members-test:ubuntu-groovy
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "groovy"
+  
+  
+  ubuntu-devel:
+    image: stoey/cross-members-test:ubuntu-devel
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "devel"
+  
+  
+  ubuntu-19.10:
+    image: stoey/cross-members-test:ubuntu-19.10
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "19.10"
+  
+  
+  ubuntu-eoan-20200410:
+    image: stoey/cross-members-test:ubuntu-eoan-20200410
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "eoan-20200410"
+  
+  
+  ubuntu-eoan:
+    image: stoey/cross-members-test:ubuntu-eoan
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "eoan"
+  
+  
+  ubuntu-18.04:
+    image: stoey/cross-members-test:ubuntu-18.04
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "18.04"
+  
+  
+  ubuntu-bionic-20200403:
+    image: stoey/cross-members-test:ubuntu-bionic-20200403
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "bionic-20200403"
+  
+  
+  ubuntu-bionic:
+    image: stoey/cross-members-test:ubuntu-bionic
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "bionic"
+  
+  
+  ubuntu-16.04:
+    image: stoey/cross-members-test:ubuntu-16.04
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "16.04"
+  
+  
+  ubuntu-xenial-20200326:
+    image: stoey/cross-members-test:ubuntu-xenial-20200326
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "xenial-20200326"
+  
+  
+  ubuntu-xenial:
+    image: stoey/cross-members-test:ubuntu-xenial
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "xenial"
+  
+  
+  ubuntu-14.04:
+    image: stoey/cross-members-test:ubuntu-14.04
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "14.04"
+  
+  
+  ubuntu-trusty-20191217:
+    image: stoey/cross-members-test:ubuntu-trusty-20191217
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "trusty-20191217"
+  
+  
+  ubuntu-trusty:
+    image: stoey/cross-members-test:ubuntu-trusty
+    build:
+      context: .
+      args:
+        distro: "ubuntu"
+        tag: "trusty"
+  

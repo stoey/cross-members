@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+SCRIPT_PATH=$(dirname $0)
+PREFIX=/usr/local/share/cross-members/ubuntu
+TESTS_PATH=/tmp/cross-members-tests
+
+find_tests () {
+    cm cm-commands | sed "s#^${PREFIX}#${TESTS_PATH}#"
+}
+
+
+find_tests | xargs -I{} ${SCRIPT_PATH}/run-test {}

@@ -1,0 +1,4 @@
+#!/bin/sh -e
+SUDO_USER=$1
+adduser ${SUDO_USER} sudo
+echo "${SUDO_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

@@ -1,0 +1,17 @@
+#!/bin/sh -e
+
+# Install prefix
+PREFIX=/usr/local
+
+INSTALLER_DIR=$(dirname $0)
+
+cd ${INSTALLER_DIR}
+
+echo "Installing cross-members from ${PWD} to ${PREFIX}"
+cp -rv cross-members/* ${PREFIX}/
+
+cd /
+
+# Run a test to confirm installation was successful
+echo -n "Checking Install: "
+cm cm-test && rm -rf ${INSTALLER_DIR}

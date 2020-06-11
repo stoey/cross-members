@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+
+PREFIX=/usr/local
+SCRIPT_PREFIX=${PREFIX}/share/cross-members/ubuntu
+
+CMD=$1
+SCRIPT=$(echo ${CMD} | tr '-' '/')
+
+SCRIPT_PATH=${SCRIPT_PREFIX}/${SCRIPT}
+
+DEBUG=0
+
+debug () {
+    if [ "$DEBUG" != "0" ]; then
+        echo "DEBUG: cross-members\t$@"
+    fi
+}
+
+error () {
+    echo "ERROR: cross-members\t$@"
+}
+
+if [ -f ${SCRIPT_PATH} ]; then
+    shift 1
+    debug "Running ${SCRIPT_PATH} $@"
+    ${SCRIPT_PATH} $@
+else
+    error "Failed to find ${SCRIPT_PATH}"
+    exit 1
+fi
+
+

@@ -1,0 +1,6 @@
+.dockerignore
+Dockerfile
+docker-compose.yml
+generate_docker_compose.py
+Makefile
+**/.*.sw?
