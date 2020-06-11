@@ -24,6 +24,8 @@ The aim is to not have to repeat the same invocations over many Dockerfiles whil
 ## Commands ##
 * `cm-commands` - Lists the currently installed commands
 * `cm-test` - Self-test command to confirm cross-members can run correctly
-* `package-install [package list files...]` - Install a list of packages from a file.  This allows your dependencies to be grouped into separate files with comments (`#`).  It also handles minimizing the build size by updating and removing packaging caches when it's done.
+* `package-install [package list files...]` - Install a list of packages from a file.
+  * Allows your dependencies to be grouped into separate files with comments (`#`).
+  * Minimizes the build size by updating and removing packaging caches when it's done.
 * `user-new [username]` - Add a new user to the container
 * `user-sudoer [username]` - Make a user a sudoer
