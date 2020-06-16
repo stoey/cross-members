@@ -4,8 +4,8 @@ A collection of scripts for common tasks when building containers
 
 Use in a Dockerfile with
 ```
-ADD https://github.com/stoey/cross-members/master.tar.gz /tmp/
-RUN /tmp/cross-members-master/install
+ADD https://github.com/stoey/cross-members/main.tar.gz /tmp/
+RUN /tmp/cross-members-main/install
 RUN cm <<command>> [args]
 ```
 
