@@ -1,0 +1,25 @@
+#!/bin/sh -e
+__DESCRIPTION__="Create a directory for use as a volume"
+__USAGE__="volume-new [[user]:[group]] path ..."
+
+VOLUME_USER=""
+VOLUME_GROUP=""
+
+if echo $1 | fgrep -q ":"; then
+    VOLUME_USER="$(echo $1 | cut -sd ':' -f 1)"
+    VOLUME_GROUP="$(echo $1 | cut -sd ':' -f 2)"
+    shift
+
+fi
+
+for VOLUME
+do
+    mkdir -p ${VOLUME}
+    if [ ${VOLUME_USER} ]; then
+        chown -R ${VOLUME_USER} ${VOLUME}
+    fi
+    if [ ${VOLUME_GROUP} ]; then
+        chgrp -R ${VOLUME_GROUP} ${VOLUME}
+    fi
+done
+
