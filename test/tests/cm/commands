@@ -1,5 +1,5 @@
 #!/bin/sh -e
 
-COMMANDS=$(cm cm-commands)
+COMMANDS=$(cm cm-commands list)
 
 #TODO - test

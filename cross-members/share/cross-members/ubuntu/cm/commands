@@ -1,5 +1,34 @@
 #!/bin/sh
+__DESCRIPTION__="List available cm commands"
+__USAGE__="cm-commands [list|usage|paths]"
 
 PREFIX=/usr/local/share/cross-members/ubuntu
 
-find ${PREFIX} -type f -executable
+MODE=$1
+SINGLE_COMMAND=$2
+
+get_meta_var () {
+    VAR_NAME="__$1__"
+    FILE_PATH=$2
+    PREFIX_PATTERN="^.*${VAR_NAME}=\""
+    SUFFIX_PATERN="\"$"
+    grep "${VAR_NAME}" ${FILE_PATH} | sed "s/${PREFIX_PATTERN}//;s/${SUFFIX_PATERN}//"
+}
+
+if [ "${SINGLE_COMMAND}" ]; then
+    COMMANDS="${PREFIX}/$( echo ${SINGLE_COMMAND} | sed "s#-#/#g")";
+else
+    COMMANDS=$(find ${PREFIX} -type f -executable | sort);
+fi
+
+for CMD in $COMMANDS;
+do {
+	CMD_NAME=$(echo $CMD | sed -e "s#${PREFIX}/##" -e "s#/#-#g")
+	CMD_DESCRIPTION=$(get_meta_var "DESCRIPTION" ${CMD})
+	CMD_USAGE=$(get_meta_var "USAGE" ${CMD})
+	if [ "${MODE}" = "list" ]; then echo "${CMD_NAME}";
+	elif [ "${MODE}" = "usage" ]; then echo "${CMD_NAME}:\n  cm ${CMD_USAGE}\n";
+	elif [ "${MODE}" = "paths" ]; then echo "${CMD}"
+	else echo "${CMD_NAME} - ${CMD_DESCRIPTION}";
+	fi
+} done

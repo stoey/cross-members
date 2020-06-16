@@ -1,4 +1,7 @@
 #!/bin/sh -e
+__DESCRIPTION__="Add a user to sudoers"
+__USAGE__="user-sudoer user"
+
 SUDO_USER=$1
 adduser ${SUDO_USER} sudo
 echo "${SUDO_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

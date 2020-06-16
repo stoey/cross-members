@@ -1,4 +1,7 @@
 #!/bin/sh -e
+__DESCRIPTION__="Create a new user"
+__USAGE__="user-new user"
+
 NEW_USER=$1
 useradd --home /home/${NEW_USER} -M ${NEW_USER} -s /bin/bash 
 mkdir /home/${NEW_USER}

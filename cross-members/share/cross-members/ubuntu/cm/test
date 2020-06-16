@@ -1,2 +1,5 @@
 #!/bin/sh -e
+__DESCRIPTION__="Test cm is installed"
+__USAGE__="cm-test"
+
 echo "OK"

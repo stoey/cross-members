@@ -1,4 +1,6 @@
 #!/bin/sh -e
+__DESCRIPTION__="Install packages from lists"
+__USAGE__="package-install packagelist ..."
 
 PACKAGE_LISTS=$@
 

@@ -5,7 +5,7 @@ PREFIX=/usr/local/share/cross-members/ubuntu
 TESTS_PATH=/tmp/cross-members-tests
 
 find_tests () {
-    cm cm-commands | sed "s#^${PREFIX}#${TESTS_PATH}#"
+    cm cm-commands paths | sed "s#^${PREFIX}#${TESTS_PATH}#"
 }
 
 
