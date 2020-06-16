@@ -15,7 +15,7 @@ Alternatively pull a Cross Member infused distro image
 FROM stoey/cross-members:ubuntu-latest
 ```
 
-Available commands are in `cross-members/share/dkbtk/<distro>/`, call them by replacing the `/` in the paths with `-` so `user/new` becomes `cm user-new`
+Available commands are in `cross-members/share/cross-members/<distro>/`, call them by replacing the `/` in the paths with `-` so `user/new` becomes `cm user-new`
 
 Curretnly the only distro supported is `ubuntu`.
 ## But why? ##
