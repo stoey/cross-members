@@ -1,5 +1,5 @@
 # Cross Members #
-![Cross Members Logo](doc/cross-members.png)
+![Cross Members Logo](doc/images/cross-members.png)
 
 A collection of scripts for common tasks to support building containers
 
