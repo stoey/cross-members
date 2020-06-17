@@ -14,13 +14,6 @@ jobs:
 
       - name: Rebuild docs
         run: make docs
-      - name: Commit files
-        run: |
-          echo ${{ github.ref }}
-          git add doc/*
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "CI: Automatically rebuilt docs" doc/* | exit 0
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
