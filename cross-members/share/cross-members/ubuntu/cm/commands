@@ -1,6 +1,6 @@
 #!/bin/sh
 __DESCRIPTION__="List available cm commands"
-__USAGE__="cm-commands [list|usage|paths]"
+__USAGE__="cm-commands [list|usage|paths|markdown]"
 
 PREFIX=/usr/local/share/cross-members/ubuntu
 
@@ -23,13 +23,25 @@ fi
 
 for CMD in $COMMANDS;
 do {
-	CMD_NAME=$(echo $CMD | sed -e "s#${PREFIX}/##" -e "s#/#-#g")
-	CMD_DESCRIPTION=$(get_meta_var "DESCRIPTION" ${CMD})
-	CMD_USAGE=$(get_meta_var "USAGE" ${CMD})
-	if [ "${MODE}" = "list" ]; then echo "${CMD_NAME}";
-	elif [ "${MODE}" = "usage" ]; then echo "${CMD_NAME}:\n  cm ${CMD_USAGE}\n";
-	elif [ "${MODE}" = "paths" ]; then echo "${CMD}"
-	elif [ "${MODE}" = "markdown" ]; then echo "## ${CMD_NAME} ##\n${CMD_DESCRIPTION}\n\`\`\`shell\ncm ${CMD_USAGE}\n\`\`\`\n"
-	else echo "${CMD_NAME} - ${CMD_DESCRIPTION}";
-	fi
+    CMD_NAME=$(echo $CMD | sed -e "s#${PREFIX}/##" -e "s#/#-#g")
+    CMD_DESCRIPTION=$(get_meta_var "DESCRIPTION" ${CMD})
+    CMD_USAGE=$(get_meta_var "USAGE" ${CMD})
+    PACKAGE_NAME=$(echo ${CMD_NAME} | cut -d '-' -f1)
+    if [ "${MODE}" = "list" ]; then
+        echo "${CMD_NAME}"
+    elif [ "${MODE}" = "usage" ]; then
+        echo "${CMD_NAME}:\n  cm ${CMD_USAGE}\n";
+    elif [ "${MODE}" = "paths" ]; then
+        echo "${CMD}"
+    elif [ "${MODE}" = "markdown" ]; then
+        if [ "${PACKAGE_NAME}" != "${PREV_PACKAGE_NAME}" ]; then
+            echo "## ${PACKAGE_NAME} ##"
+        fi
+        echo "### ${CMD_NAME} ###"
+	echo "${CMD_DESCRIPTION}"
+	echo "\`\`\`shell\ncm ${CMD_USAGE}\n\`\`\`\n"
+    else
+        echo "${CMD_NAME} - ${CMD_DESCRIPTION}";
+    fi
+    PREV_PACKAGE_NAME=$PACKAGE_NAME
 } done
