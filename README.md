@@ -1,9 +1,9 @@
 # Cross Members #
-
-A collection of scripts for common tasks when building containers
+![Cross Members Logo](doc/cross-members.png)
+A collection of scripts for common tasks to support building containers
 
 Use in a Dockerfile with
-```
+```dockerfile
 ADD https://github.com/stoey/cross-members/main.tar.gz /tmp/
 RUN /tmp/cross-members-main/install
 
@@ -11,22 +11,22 @@ RUN cm <<command>> [args]
 ```
 
 Alternatively pull a Cross Member infused distro image
-```
+```dockerfile
 FROM stoey/cross-members:ubuntu-latest
 ```
 
 Available commands are in `cross-members/share/cross-members/<distro>/`, call them by replacing the `/` in the paths with `-` so `user/new` becomes `cm user-new`
 
-Curretnly the only distro supported is `ubuntu`.
+Currently the only distro supported is `ubuntu`.
 ## But why? ##
 
 The aim is to not have to repeat the same invocations over many Dockerfiles while also adding to the readability of Dockerfiles.
 
 ## Commands ##
-* `cm-commands` - Lists the currently installed commands
-* `cm-test` - Self-test command to confirm cross-members can run correctly
-* `package-install [package list files...]` - Install a list of packages from a file.
-  * Allows your dependencies to be grouped into separate files with comments (`#`).
-  * Minimizes the build size by updating and removing packaging caches when it's done.
-* `user-new [username]` - Add a new user to the container
-* `user-sudoer [username]` - Make a user a sudoer
+
+To see a list of commands run
+```shell
+cm cm-commands
+```
+
+See: [Commands](doc/commands.md)

@@ -29,6 +29,7 @@ do {
 	if [ "${MODE}" = "list" ]; then echo "${CMD_NAME}";
 	elif [ "${MODE}" = "usage" ]; then echo "${CMD_NAME}:\n  cm ${CMD_USAGE}\n";
 	elif [ "${MODE}" = "paths" ]; then echo "${CMD}"
+	elif [ "${MODE}" = "markdown" ]; then echo "## ${CMD_NAME} ##\n${CMD_DESCRIPTION}\n\`\`\`shell\ncm ${CMD_USAGE}\n\`\`\`\n"
 	else echo "${CMD_NAME} - ${CMD_DESCRIPTION}";
 	fi
 } done

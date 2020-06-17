@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+DOC_NAME=$1
+
+BASEPATH=$(dirname $0)
+
+SRC_PATH="${BASEPATH}/doc"
+DOC_PATH=$(realpath "${BASEPATH}/../doc")
+
+OUTPUT="${DOC_PATH}/${DOC_NAME}.md"
+
+EXECUTABLE="${SRC_PATH}/${DOC_NAME}"
+
+HEADER="${SRC_PATH}/${DOC_NAME}-header.md"
+FOOTER="${SRC_PATH}/${DOC_NAME}-footer.md"
+
+# Create or replace an empty file
+echo -n > ${OUTPUT}
+
+if [ -f ${HEADER} ]; then cat ${HEADER} >> ${OUTPUT}; fi
+if [ -x ${SCRIPT} ]; then ${EXECUTABLE} >> ${OUTPUT}; fi
+if [ -f ${FOOTER} ]; then cat ${FOOTER} >> ${OUTPUT}; fi
+
+echo "---\n<sub>Automatically generated at: $(date -u) (commit: $(git rev-parse HEAD))" >> ${OUTPUT}

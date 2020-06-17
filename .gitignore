@@ -2,3 +2,5 @@ docker-compose.yml
 test/docker-compose.yml
 dist/*
 !dist/.gitkeep
+build/logs/*
+!build/logs/.gitkeep
