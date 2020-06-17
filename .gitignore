@@ -4,3 +4,4 @@ dist/*
 !dist/.gitkeep
 build/logs/*
 !build/logs/.gitkeep
+doc/command.md

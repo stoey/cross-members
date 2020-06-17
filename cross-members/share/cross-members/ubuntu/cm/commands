@@ -26,6 +26,7 @@ do {
     CMD_NAME=$(echo $CMD | sed -e "s#${PREFIX}/##" -e "s#/#-#g")
     CMD_DESCRIPTION=$(get_meta_var "DESCRIPTION" ${CMD})
     CMD_USAGE=$(get_meta_var "USAGE" ${CMD})
+    PREV_PACKAGE_NAME=" "
     PACKAGE_NAME=$(echo ${CMD_NAME} | cut -d '-' -f1)
     if [ "${MODE}" = "list" ]; then
         echo "${CMD_NAME}"
@@ -34,12 +35,14 @@ do {
     elif [ "${MODE}" = "paths" ]; then
         echo "${CMD}"
     elif [ "${MODE}" = "markdown" ]; then
-        if [ "${PACKAGE_NAME}" != "${PREV_PACKAGE_NAME}" ]; then
+        if [ "${PREV_PACKAGE_NAME}" != "${PACKAGE_NAME}" ]; then
             echo "## ${PACKAGE_NAME} ##"
         fi
         echo "### ${CMD_NAME} ###"
 	echo "${CMD_DESCRIPTION}"
-	echo "\`\`\`shell\ncm ${CMD_USAGE}\n\`\`\`\n"
+	echo '```'
+	echo "cm ${CMD_USAGE}"
+	echo '```'
     else
         echo "${CMD_NAME} - ${CMD_DESCRIPTION}";
     fi

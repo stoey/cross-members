@@ -1,4 +1,4 @@
-.PHONY: all push clean test docs ubuntu-%
+.PHONY: all push clean clean-docs test docs ubuntu-%
 
 .SUFFIXES:
 
@@ -21,8 +21,11 @@ all: build/logs/all
 push: all
 	$(DOCKER_COMPOSE) push
 
-clean:
-	-rm -f $(DOCKER_COMPOSE_FILE) $(PACKAGEFILE) $(DOCS) build/logs/*
+clean: clean-docs
+	-rm -f $(DOCKER_COMPOSE_FILE) $(PACKAGEFILE) build/logs/*
+
+clean-docs:
+	-rm -f $(DOCS)
 
 test: all
 	make -C test
@@ -31,6 +34,9 @@ ubuntu-%: build/logs/ubuntu-%
 
 
 docs: $(DOCS)
+
+docs-list:
+	@echo $(DOCS)
 
 $(DOCKER_COMPOSE_FILE): build/generate_docker_compose.py
 	python3 build/generate_docker_compose.py > $@
@@ -45,5 +51,5 @@ $(PACKAGEFILE): install $(EXECUTABLE) $(COMMANDS)
 	tar -cvzf $@ install cross-members
 
 doc/%.md: build/generate_doc build/logs/ubuntu-latest build/doc/% build/doc/%-header.md build/doc/%-footer.md  
-	build/generate_doc $*
+	build/generate_doc $* > $@
 
