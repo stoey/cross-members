@@ -21,13 +21,8 @@ Available commands are in `cross-members/share/cross-members/<distro>/`, call th
 Currently the only distro supported is `ubuntu`.
 ## But why? ##
 
-The aim is to not have to repeat the same invocations over many Dockerfiles while also adding to the readability of Dockerfiles.
+The aim is to not have to repeat the same invocations over many Dockerfiles while also hopefully improving the readability of Dockerfiles.
 
 ## Commands ##
 
-To see a list of commands run
-```shell
-cm cm-commands
-```
-
-See: [Commands](doc/commands.md)
+See: [Commands](doc/commands.md) for the full list
