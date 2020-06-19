@@ -18,5 +18,5 @@ jobs:
           make docs
           git add -f $(make docs-list)
           git -c usser.email="actions@github.com" -c user.name="GitHub Actions" commit -m "Autogenerate Docs" --author "stoey <stoey@users.noreply.github.com>"
-          git push --set-upstream oriigin HEAD:main
+          git push --set-upstream origin HEAD:main
 
